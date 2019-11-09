@@ -7,8 +7,13 @@ function areSimilar(a: number[], b: number[]): boolean {
         } else {
             for (let i = 0; i < a.length; i++) {             
                 let newB = [...b];
+                let newA = [...a];
 
+                // Swap
                 newB[i] = a[i];
+                newA[i] = b[i];
+                console.log(newA);
+                console.log(newB);
 
                 if (a.join('') === newB.join('')) {
                     bool = true;
@@ -23,7 +28,7 @@ function areSimilar(a: number[], b: number[]): boolean {
 
 console.log(areSimilar([1, 2, 3], [1, 2, 3]));
 console.log(areSimilar([1, 2, 3], [2, 1, 3]));
-console.log(areSimilar([1, 2, 2], [2, 1, 1]));
-console.log(areSimilar([3, 2, 1], [2, 2, 1]));
+//console.log(areSimilar([1, 2, 2], [2, 1, 1]));
+//console.log(areSimilar([3, 2, 1], [2, 2, 1]));
 
 // Wrong solution, needs to swap values instead of replacing
