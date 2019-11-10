@@ -11,8 +11,14 @@ function areSimilar(a: number[], b: number[]): boolean {
 
                 // Swap (wrong way)
                 newB[i] = b[i+1];
-                newA[i] = a[i+1];
+                newB[i+1] = b[i];
+                //newA[i] = a[i+1];
                 // should be something like newB[i] = newB.length-i
+
+                // cases when array.length = 3
+                // 1. element 0 <> element 1
+                // 2. element 0 <> element 2
+                // 3. element 1 <> element 2
 
                 console.log(newA);
                 console.log(newB);
