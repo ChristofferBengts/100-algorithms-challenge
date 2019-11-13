@@ -9,24 +9,38 @@ function areSimilar(a: number[], b: number[]): boolean {
                 let newB = [...b];
                 let newA = [...a];
 
-                // Swap (wrong way)
+                // Swap
+
+                // 1. element 0 <> element 1
                 newB[i] = b[i+1];
                 newB[i+1] = b[i];
-                //newA[i] = a[i+1];
-                // should be something like newB[i] = newB.length-i
-
-                // cases when array.length = 3
-                // 1. element 0 <> element 1
-                // 2. element 0 <> element 2
-                // 3. element 1 <> element 2
-
-                console.log(newA);
-                console.log(newB);
-
-                if (newA.join('') === b.join('')) {
+                if (newB.join('') === a.join('')) {
                     bool = true;
                     break;
                 }    
+                // 2. element 0 <> element 2
+                newB = [...b];
+                newB[i] = b[i+2];
+                newB[i+2] = b[i];
+                if (newB.join('') === a.join('')) {
+                    bool = true;
+                    break;
+                }    
+                // 3. element 1 <> element 2
+                newB = [...b];
+                newB[i+1] = b[i+2];
+                newB[i+2] = b[i+1];
+                if (newB.join('') === a.join('')) {
+                    bool = true;
+                    break;
+                }    
+
+
+                //newA[i] = a[i+1];
+                // should be something like newB[i] = newB.length-i
+
+                console.log(newA);
+                console.log(newB);
             }
         }
     
