@@ -6,9 +6,8 @@ var __spreadArrays = (this && this.__spreadArrays) || function () {
     return r;
 };
 function areSimilar(a, b) {
-    var bool = false;
     if (a.join('') === b.join('')) {
-        bool = true;
+        return true;
     }
     else {
         // Swap every element in array with every other element in array once
@@ -21,16 +20,12 @@ function areSimilar(a, b) {
                 newB[b.length - (i_1 + 1)] = b[cur];
                 // Check if same
                 if (newB.join('') === a.join('')) {
-                    bool = true;
-                    break;
+                    return true;
                 }
-            }
-            if (bool) {
-                break;
             }
         }
     }
-    return bool;
+    return false;
 }
 console.log(areSimilar([1, 2, 3], [1, 2, 3]));
 console.log(areSimilar([1, 2, 3], [2, 1, 3]));
