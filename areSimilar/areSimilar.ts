@@ -1,33 +1,26 @@
 function areSimilar(a: number[], b: number[]): boolean {
-   
-    let bool = false;
-        
+     
         if (a.join('') === b.join('')) {
-            bool = true;
+            return true;
         } else {
             // Swap every element in array with every other element in array once
             for (let i = 0; i < b.length; i++) {             
-                let cur = i;
+                let cur: number = i;
 
                 for (let i = 0; i < b.length; i++) {             
-                    let newB = [...b];
+                    let newB: number[] = [...b];
                     // Swap        
                     newB[cur] = b[b.length - (i + 1)];
                     newB[b.length - (i + 1)] = b[cur];
                     // Check if same
                     if (newB.join('') === a.join('')) {
-                        bool = true;
-                        break;
-                    }    
-                }
-
-                if (bool) {
-                    break;
+                        return true;
+                    }
                 }
             }
         }
-        
-    return  bool;
+     
+    return  false;
 }
 
 console.log(areSimilar([1, 2, 3], [1, 2, 3]));
